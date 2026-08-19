@@ -1,0 +1,88 @@
+.pagina-conteudo {
+  padding: 48px 20px 64px;
+}
+
+.pagina-conteudo__cabecalho {
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.pagina-conteudo__cabecalho h1 {
+  color: var(--azul-900);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.pagina-conteudo__cabecalho p {
+  color: var(--cinza-700);
+}
+
+.lista-artigos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.artigo-card {
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.artigo-card:hover {
+  border-color: var(--azul-500);
+  box-shadow: var(--sombra-media);
+}
+
+.artigo-card h2 {
+  font-size: 19px;
+  color: var(--azul-900);
+  margin: 0 0 8px;
+}
+
+.artigo-card p {
+  color: var(--cinza-700);
+  font-size: 14.5px;
+  margin: 0 0 14px;
+}
+
+.artigo-card__link {
+  color: var(--azul-700);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.pagina-artigo {
+  padding: 48px 20px 64px;
+}
+
+.pagina-artigo__voltar {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pagina-artigo h1 {
+  color: var(--azul-900);
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.pagina-artigo__fonte {
+  font-size: 13px;
+  color: var(--cinza-500);
+  margin-bottom: 28px;
+}
+
+.pagina-artigo__corpo p {
+  color: var(--cinza-900);
+  font-size: 16.5px;
+  margin-bottom: 18px;
+}
+
+.pagina-artigo__nao-encontrado {
+  text-align: center;
+  padding: 64px 20px;
+}

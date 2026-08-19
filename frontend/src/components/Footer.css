@@ -1,0 +1,31 @@
+.rodape {
+  background: var(--cinza-100);
+  border-top: 1px solid var(--cinza-200);
+  margin-top: 48px;
+}
+
+.rodape__conteudo {
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.rodape__aviso {
+  font-size: 14px;
+  color: var(--cinza-700);
+  font-weight: 600;
+  max-width: 640px;
+  margin: 0 auto 10px;
+}
+
+.rodape__lgpd {
+  font-size: 13px;
+  color: var(--cinza-500);
+  max-width: 640px;
+  margin: 0 auto 10px;
+}
+
+.rodape__creditos {
+  font-size: 12px;
+  color: var(--cinza-500);
+  margin: 0;
+}

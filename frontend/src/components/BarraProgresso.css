@@ -1,0 +1,28 @@
+.barra-progresso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.barra-progresso__trilha {
+  flex: 1;
+  height: 10px;
+  background: var(--cinza-200);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-progresso__preenchimento {
+  height: 100%;
+  background: var(--azul-700);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.barra-progresso__texto {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cinza-700);
+  white-space: nowrap;
+}
