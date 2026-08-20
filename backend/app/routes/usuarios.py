@@ -1,4 +1,6 @@
 """Rota POST /usuarios (Manual, Parte VI, capítulo 39)."""
+import logging
+
 from fastapi import APIRouter, HTTPException, status
 
 from app.db.repositories import UsuarioRepository
@@ -6,6 +8,7 @@ from app.models.usuario_models import UsuarioCreate, UsuarioOut
 
 router = APIRouter(tags=["usuarios"])
 usuario_repo = UsuarioRepository()
+logger = logging.getLogger("neuroclass.usuarios")
 
 
 @router.post("/usuarios", response_model=UsuarioOut, status_code=status.HTTP_201_CREATED)
@@ -25,6 +28,7 @@ def criar_ou_recuperar_usuario(payload: UsuarioCreate):
     except HTTPException:
         raise
     except Exception:
+        logger.exception("Falha ao criar/recuperar usuário (email=%s)", payload.email)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Não foi possível processar o cadastro do usuário no momento.",
