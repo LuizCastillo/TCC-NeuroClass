@@ -7,26 +7,37 @@ import ConteudoDetalhe from "./pages/ConteudoDetalhe";
 import QuizCadastro from "./pages/QuizCadastro";
 import QuizJogar from "./pages/QuizJogar";
 import QuizResultado from "./pages/QuizResultado";
-import Psicologa from "./pages/Psicologa";
+import Ferramentas from "./pages/Ferramentas";
+import Planejamento from "./pages/Planejamento";
+import PlanejamentoNova from "./pages/PlanejamentoNova";
+import PlanejamentoDetalhe from "./pages/PlanejamentoDetalhe";
+import Foco from "./pages/Foco";
 import { QuizProvider } from "./hooks/useQuizContext";
+import { UsuarioPlanejamentoProvider } from "./hooks/useUsuarioPlanejamento";
 
 export default function App() {
   return (
     <BrowserRouter>
       <QuizProvider>
-        <Header />
-        <main className="main-conteudo">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/conteudo" element={<Conteudo />} />
-            <Route path="/conteudo/:slug" element={<ConteudoDetalhe />} />
-            <Route path="/quiz" element={<QuizCadastro />} />
-            <Route path="/quiz/jogar" element={<QuizJogar />} />
-            <Route path="/quiz/resultado/:tentativaId" element={<QuizResultado />} />
-            <Route path="/psicologa" element={<Psicologa />} />
-          </Routes>
-        </main>
-        <Footer />
+        <UsuarioPlanejamentoProvider>
+          <Header />
+          <main className="main-conteudo">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/conteudo" element={<Conteudo />} />
+              <Route path="/conteudo/:slug" element={<ConteudoDetalhe />} />
+              <Route path="/quiz" element={<QuizCadastro />} />
+              <Route path="/quiz/jogar" element={<QuizJogar />} />
+              <Route path="/quiz/resultado/:tentativaId" element={<QuizResultado />} />
+              <Route path="/ferramentas" element={<Ferramentas />} />
+              <Route path="/planejamento" element={<Planejamento />} />
+              <Route path="/planejamento/nova" element={<PlanejamentoNova />} />
+              <Route path="/planejamento/:id" element={<PlanejamentoDetalhe />} />
+              <Route path="/foco" element={<Foco />} />
+            </Routes>
+          </main>
+          <Footer />
+        </UsuarioPlanejamentoProvider>
       </QuizProvider>
     </BrowserRouter>
   );

@@ -1,0 +1,105 @@
+.pagina-planejamento-nova {
+  padding: 48px 20px 64px;
+}
+
+.pagina-planejamento-nova__voltar {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pagina-planejamento-nova h1 {
+  color: var(--azul-900);
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.formulario-etapas__progresso {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cinza-500);
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.formulario-etapas__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formulario-etapas__textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.formulario-etapas fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opcoes-categoria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.opcao-categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border: 1.5px solid var(--cinza-200);
+  border-radius: var(--raio);
+  background: var(--branco);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cinza-700);
+}
+
+.opcao-categoria span {
+  font-size: 22px;
+}
+
+.opcao-categoria--selecionada {
+  border-color: var(--azul-700);
+  background: var(--azul-50);
+  color: var(--azul-900);
+}
+
+.opcoes-prioridade {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.opcao-prioridade {
+  flex: 1;
+  padding: 12px;
+  border: 1.5px solid var(--cinza-200);
+  border-radius: var(--raio);
+  background: var(--branco);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--cinza-700);
+}
+
+.opcao-prioridade--selecionada {
+  border-color: var(--azul-700);
+  background: var(--azul-50);
+  color: var(--azul-900);
+}
+
+.formulario-etapas__acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  justify-content: flex-end;
+}

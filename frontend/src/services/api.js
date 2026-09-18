@@ -61,6 +61,52 @@ export const api = {
     }),
 
   obterResultado: (tentativaId) => request(`/quiz/resultado/${tentativaId}`),
+
+  // --- Ferramentas para o dia a dia: organização e rotina ---
+  criarTarefa: (tarefa) => request("/tarefas", { method: "POST", body: JSON.stringify(tarefa) }),
+
+  listarTarefas: (usuarioId, data) => {
+    const params = new URLSearchParams({ usuario_id: usuarioId });
+    if (data) params.set("data", data);
+    return request(`/tarefas?${params.toString()}`);
+  },
+
+  obterTarefa: (tarefaId, usuarioId) =>
+    request(`/tarefas/${tarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`),
+
+  atualizarTarefa: (tarefaId, usuarioId, alteracoes) =>
+    request(`/tarefas/${tarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "PATCH",
+      body: JSON.stringify(alteracoes),
+    }),
+
+  excluirTarefa: (tarefaId, usuarioId) =>
+    request(`/tarefas/${tarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "DELETE",
+    }),
+
+  criarSubtarefa: (tarefaId, usuarioId, titulo) =>
+    request(`/tarefas/${tarefaId}/subtarefas?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "POST",
+      body: JSON.stringify({ titulo }),
+    }),
+
+  atualizarSubtarefa: (subtarefaId, usuarioId, alteracoes) =>
+    request(`/subtarefas/${subtarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "PATCH",
+      body: JSON.stringify(alteracoes),
+    }),
+
+  excluirSubtarefa: (subtarefaId, usuarioId) =>
+    request(`/subtarefas/${subtarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "DELETE",
+    }),
+
+  reordenarSubtarefas: (tarefaId, usuarioId, idsEmOrdem) =>
+    request(
+      `/tarefas/${tarefaId}/subtarefas/reordenar?${new URLSearchParams({ usuario_id: usuarioId })}`,
+      { method: "PATCH", body: JSON.stringify({ ids_em_ordem: idsEmOrdem }) }
+    ),
 };
 
 export { ApiError };

@@ -112,3 +112,73 @@ class RespostaRepository:
         client = get_supabase_client()
         resp = client.table("respostas").select("*").eq("tentativa_id", str(tentativa_id)).execute()
         return resp.data
+
+
+class TarefaRepository:
+    def criar(self, dados: dict[str, Any]) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = client.table("tarefas").insert(dados).execute()
+        return resp.data[0]
+
+    def listar_por_usuario(self, usuario_id: UUID, data: Optional[str] = None) -> list[dict[str, Any]]:
+        client = get_supabase_client()
+        query = client.table("tarefas").select("*").eq("usuario_id", str(usuario_id))
+        if data:
+            query = query.eq("data", data)
+        resp = query.order("horario", desc=False, nullsfirst=False).execute()
+        return resp.data
+
+    def buscar_por_id(self, tarefa_id: UUID) -> Optional[dict[str, Any]]:
+        client = get_supabase_client()
+        resp = client.table("tarefas").select("*").eq("id", str(tarefa_id)).limit(1).execute()
+        return resp.data[0] if resp.data else None
+
+    def atualizar(self, tarefa_id: UUID, dados: dict[str, Any]) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = client.table("tarefas").update(dados).eq("id", str(tarefa_id)).execute()
+        return resp.data[0]
+
+    def excluir(self, tarefa_id: UUID) -> None:
+        client = get_supabase_client()
+        client.table("tarefas").delete().eq("id", str(tarefa_id)).execute()
+
+
+class SubtarefaRepository:
+    def criar(self, tarefa_id: UUID, titulo: str, ordem: int) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = (
+            client.table("subtarefas")
+            .insert({"tarefa_id": str(tarefa_id), "titulo": titulo, "ordem": ordem})
+            .execute()
+        )
+        return resp.data[0]
+
+    def listar_por_tarefa(self, tarefa_id: UUID) -> list[dict[str, Any]]:
+        client = get_supabase_client()
+        resp = (
+            client.table("subtarefas")
+            .select("*")
+            .eq("tarefa_id", str(tarefa_id))
+            .order("ordem", desc=False)
+            .execute()
+        )
+        return resp.data
+
+    def buscar_por_id(self, subtarefa_id: UUID) -> Optional[dict[str, Any]]:
+        client = get_supabase_client()
+        resp = client.table("subtarefas").select("*").eq("id", str(subtarefa_id)).limit(1).execute()
+        return resp.data[0] if resp.data else None
+
+    def atualizar(self, subtarefa_id: UUID, dados: dict[str, Any]) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = client.table("subtarefas").update(dados).eq("id", str(subtarefa_id)).execute()
+        return resp.data[0]
+
+    def excluir(self, subtarefa_id: UUID) -> None:
+        client = get_supabase_client()
+        client.table("subtarefas").delete().eq("id", str(subtarefa_id)).execute()
+
+    def reordenar(self, ids_em_ordem: list[UUID]) -> None:
+        client = get_supabase_client()
+        for ordem, subtarefa_id in enumerate(ids_em_ordem):
+            client.table("subtarefas").update({"ordem": ordem}).eq("id", str(subtarefa_id)).execute()

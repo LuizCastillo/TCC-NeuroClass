@@ -5,7 +5,7 @@ const LINKS = [
   { to: "/", label: "Início", fim: true },
   { to: "/conteudo", label: "Conteúdo" },
   { to: "/quiz", label: "Quiz" },
-  { to: "/psicologa", label: "Fale com a psicóloga" },
+  { to: "/ferramentas", label: "Ferramentas para o dia a dia" },
 ];
 
 export default function Header() {

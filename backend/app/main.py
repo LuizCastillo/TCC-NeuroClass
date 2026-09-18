@@ -12,7 +12,7 @@ from slowapi.errors import RateLimitExceeded
 from app.middlewares.cors import register_cors
 from app.middlewares.error_handler import register_error_handlers
 from app.middlewares.rate_limit import limiter
-from app.routes import quiz, usuarios
+from app.routes import planejamento, quiz, usuarios
 
 logging.basicConfig(level=logging.INFO)
 
@@ -33,6 +33,7 @@ register_error_handlers(app)
 
 app.include_router(usuarios.router)
 app.include_router(quiz.router)
+app.include_router(planejamento.router)
 
 
 @app.get("/", tags=["status"])
@@ -42,5 +43,5 @@ def raiz():
 
 @app.get("/saude", tags=["status"])
 def verificar_saude():
-    """Endpoint simples de health check para monitoramento em produção (Railway)."""
+    """Endpoint simples de health check para monitoramento em produção (Render)."""
     return JSONResponse(status_code=status.HTTP_200_OK, content={"status": "saudavel"})

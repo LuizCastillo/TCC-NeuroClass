@@ -1,0 +1,109 @@
+.tarefa-item {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  border: 1.5px solid var(--cinza-200);
+  border-radius: var(--raio);
+  background: var(--branco);
+  overflow: hidden;
+}
+
+.tarefa-item--concluida {
+  background: var(--cinza-100);
+  border-color: var(--cinza-200);
+}
+
+.tarefa-item__checkbox {
+  flex-shrink: 0;
+  width: 44px;
+  border: none;
+  border-right: 1.5px solid var(--cinza-200);
+  background: var(--branco);
+  color: var(--verde-600);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarefa-item__checkbox:hover {
+  background: var(--verde-50);
+}
+
+.tarefa-item--concluida .tarefa-item__checkbox {
+  background: var(--verde-50);
+}
+
+.tarefa-item__conteudo {
+  flex: 1;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 14px 16px 14px 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tarefa-item__linha-principal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.tarefa-item__horario {
+  font-weight: 700;
+  color: var(--azul-700);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.tarefa-item__icone {
+  flex-shrink: 0;
+}
+
+.tarefa-item__titulo {
+  font-weight: 600;
+  color: var(--cinza-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tarefa-item--concluida .tarefa-item__titulo {
+  text-decoration: line-through;
+  color: var(--cinza-500);
+}
+
+.tarefa-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--cinza-500);
+  flex-wrap: wrap;
+}
+
+.tarefa-item__prioridade {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.tarefa-item__prioridade--baixa {
+  background: var(--cinza-100);
+  color: var(--cinza-700);
+}
+.tarefa-item__prioridade--media {
+  background: var(--azul-100);
+  color: var(--azul-900);
+}
+.tarefa-item__prioridade--alta {
+  background: #fef3c7;
+  color: #92400e;
+}

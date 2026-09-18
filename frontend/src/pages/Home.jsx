@@ -61,11 +61,12 @@ export default function Home() {
           </div>
           <div className="cartao home-card">
             <span className="home-card__icone" aria-hidden="true">
-              🎥
+              🗓️
             </span>
-            <h3>Fale com a psicóloga</h3>
+            <h3>Ferramentas para o dia a dia</h3>
             <p>
-              Assista a um vídeo institucional com orientações de uma profissional sobre o tema.
+              Organize tarefas, monte sua rotina escolar e use o modo foco para se concentrar em
+              uma atividade por vez.
             </p>
           </div>
         </div>

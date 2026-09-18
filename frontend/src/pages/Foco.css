@@ -1,0 +1,142 @@
+.pagina-foco {
+  padding: 64px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.foco-config h1 {
+  color: var(--azul-900);
+  font-size: 22px;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.foco-config__intro {
+  color: var(--cinza-700);
+  text-align: center;
+  margin: 0 0 28px;
+  font-size: 14.5px;
+}
+
+.foco-config__campo {
+  margin-bottom: 22px;
+}
+
+.foco-config__opcoes {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.foco-config__opcao {
+  flex: 1;
+  min-width: 64px;
+  padding: 12px 8px;
+  border: 1.5px solid var(--cinza-200);
+  border-radius: var(--raio);
+  background: var(--branco);
+  color: var(--cinza-700);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.foco-config__opcao--ativa {
+  border-color: var(--azul-700);
+  background: var(--azul-50);
+  color: var(--azul-900);
+}
+
+/* Timer: tela propositalmente minimalista, sem cor de fundo chamativa,
+   sem animações constantes — apenas a barra de progresso avança de forma
+   linear e silenciosa (respeita prefers-reduced-motion abaixo). */
+.foco-timer {
+  text-align: center;
+  padding: 56px 32px;
+  width: 100%;
+}
+
+.foco-timer--pausa {
+  background: var(--verde-50);
+  border-color: #bbf7d0;
+}
+
+.foco-timer__rotulo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--cinza-500);
+  margin: 0 0 16px;
+}
+
+.foco-timer__relogio {
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--azul-900);
+  margin: 0 0 28px;
+  font-variant-numeric: tabular-nums;
+}
+
+.foco-timer__trilha {
+  height: 8px;
+  background: var(--cinza-200);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.foco-timer__preenchimento {
+  height: 100%;
+  background: var(--azul-700);
+  border-radius: 999px;
+  transition: width 1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foco-timer__preenchimento {
+    transition: none;
+  }
+}
+
+.foco-timer__acoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.foco-concluido {
+  text-align: center;
+}
+
+.foco-concluido h1 {
+  color: var(--azul-900);
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.foco-concluido p {
+  color: var(--cinza-700);
+  margin: 0 0 20px;
+}
+
+.foco-concluido__confirmacao {
+  color: var(--verde-600);
+  font-weight: 600;
+}
+
+.foco-concluido__acoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 480px) {
+  .foco-timer__relogio {
+    font-size: 48px;
+  }
+  .foco-timer {
+    padding: 40px 20px;
+  }
+}
