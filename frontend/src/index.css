@@ -94,6 +94,7 @@ select:focus-visible,
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.05s ease;
   font-family: inherit;
+  text-decoration: none;
 }
 
 .botao:active {
