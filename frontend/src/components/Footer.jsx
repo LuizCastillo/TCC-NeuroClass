@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
@@ -9,9 +10,14 @@ export default function Footer() {
           Para avaliação profissional, procure um psiquiatra, neurologista ou psicólogo qualificado.
         </p>
         <p className="rodape__lgpd">
-          Coletamos apenas nome e e-mail para envio do resultado do quiz, em conformidade com a LGPD.
-          Nenhum dado é compartilhado com terceiros.
+          Coletamos apenas nome e e-mail para identificar seu resultado do quiz e suas tarefas de
+          organização, em conformidade com a LGPD.
         </p>
+        <nav className="rodape__links" aria-label="Links legais">
+          <Link to="/privacidade">Política de Privacidade</Link>
+          <span aria-hidden="true">·</span>
+          <Link to="/termos">Termos de Uso</Link>
+        </nav>
         <p className="rodape__creditos">
           Projeto de TCC — Etec Albert Einstein, Técnico em Informática para Internet, 2026.
         </p>
