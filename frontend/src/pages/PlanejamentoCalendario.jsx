@@ -12,6 +12,81 @@ const TEMAS = [
   { valor: "laranja", rotulo: "Laranja", cor: "#ea580c" },
 ];
 
+const GUIAS = {
+  google: {
+    rotulo: "Google Calendar",
+    passos: [
+      "Acesse calendar.google.com e faça login normalmente.",
+      'No menu à esquerda, ao lado de "Outros calendários", clique no ícone "+".',
+      'Selecione a opção "A partir da URL".',
+      'Cole o link copiado acima no campo, e clique em "Adicionar calendário".',
+    ],
+    observacao:
+      "O Google atualiza calendários importados por link a cada 12–24 horas — não é instantâneo. Se você criar uma tarefa nova, pode levar um tempo para aparecer lá.",
+  },
+  apple: {
+    rotulo: "Apple Calendar",
+    passos: [
+      "No Mac: abra o app Calendário e vá em Arquivo → Nova assinatura de calendário.",
+      "No iPhone/iPad: vá em Ajustes → Calendário → Contas → Adicionar Conta → Outra → Adicionar Calend. de Assinatura.",
+      "Cole o link copiado acima no campo indicado.",
+      'Confirme tocando em "Assinar" (Mac) ou "Avançar" e depois "Salvar" (iPhone/iPad).',
+    ],
+    observacao: "Você pode escolher a frequência de atualização automática nas opções da assinatura.",
+  },
+  outlook: {
+    rotulo: "Outlook",
+    passos: [
+      "Acesse outlook.com/calendar e faça login.",
+      'Clique em "Adicionar calendário" e depois em "Assinar da web".',
+      "Cole o link copiado acima no campo de URL.",
+      "Dê um nome ao calendário (ex: Rotina NeuroClass) e clique em Importar.",
+    ],
+    observacao: "",
+  },
+};
+
+function GuiaExportacao({ link }) {
+  const [plataforma, setPlataforma] = useState(null);
+  const guia = plataforma ? GUIAS[plataforma] : null;
+
+  return (
+    <div className="guia-exportacao">
+      <p className="guia-exportacao__pergunta">Como colocar esse link no seu calendário?</p>
+      <div className="guia-exportacao__abas" role="tablist" aria-label="Escolha seu aplicativo de calendário">
+        {Object.entries(GUIAS).map(([chave, g]) => (
+          <button
+            key={chave}
+            type="button"
+            role="tab"
+            aria-selected={plataforma === chave}
+            className={"guia-exportacao__aba" + (plataforma === chave ? " guia-exportacao__aba--ativa" : "")}
+            onClick={() => setPlataforma(plataforma === chave ? null : chave)}
+          >
+            {g.rotulo}
+          </button>
+        ))}
+      </div>
+
+      {guia && (
+        <div className="guia-exportacao__conteudo" role="tabpanel">
+          <ol className="guia-exportacao__passos">
+            {guia.passos.map((passo, i) => (
+              <li key={i}>{passo}</li>
+            ))}
+          </ol>
+          {guia.observacao && <p className="guia-exportacao__observacao">{guia.observacao}</p>}
+          {!link && (
+            <p className="guia-exportacao__observacao">
+              Gere o link acima primeiro — você vai precisar dele no passo de colar a URL.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function PromoPremium() {
   return (
     <div className="container container--estreito pagina-calendario">
@@ -119,6 +194,7 @@ export default function PlanejamentoCalendario() {
             <button type="button" className="calendario-regenerar" onClick={regenerarLink}>
               Gerar novo link (invalida o anterior)
             </button>
+            <GuiaExportacao link={link} />
           </>
         )}
 
