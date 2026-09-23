@@ -6,6 +6,7 @@ const LINKS = [
   { to: "/conteudo", label: "Conteúdo" },
   { to: "/quiz", label: "Quiz" },
   { to: "/ferramentas", label: "Ferramentas para o dia a dia" },
+  { to: "/premium", label: "Premium" },
 ];
 
 export default function Header() {

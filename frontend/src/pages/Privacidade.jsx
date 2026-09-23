@@ -68,6 +68,22 @@ export default function Privacidade() {
           para nenhuma informação sensível além de tarefas escolares comuns.
         </p>
 
+        <h2>Plano premium (modo demonstração) e link de calendário</h2>
+        <p>
+          O site oferece um plano premium simulado, sem cobrança real (ver{" "}
+          <Link to="/termos">Termos de Uso</Link> para detalhes). Ao ativar esse plano, associamos
+          ao seu cadastro a informação de que você está no plano "premium", apenas para liberar
+          recursos adicionais — nenhum dado de pagamento é coletado, pois nenhum pagamento
+          acontece de fato.
+        </p>
+        <p>
+          Usuários premium podem gerar um <strong>link pessoal de calendário</strong> (.ics) para
+          sincronizar suas tarefas com aplicativos externos como Google Calendar, Apple Calendar
+          ou Outlook. Esse link contém um código de acesso próprio e funciona como uma senha:
+          qualquer pessoa com o link consegue ver as tarefas associadas a ele. Você pode gerar um
+          novo link a qualquer momento pela própria ferramenta, invalidando o anterior.
+        </p>
+
         <h2>Armazenamento no seu navegador</h2>
         <p>
           Para lembrar quem você é entre uma visita e outra, guardamos seu nome e e-mail no{" "}

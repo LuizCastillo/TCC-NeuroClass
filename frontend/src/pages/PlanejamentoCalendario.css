@@ -1,0 +1,125 @@
+.pagina-calendario {
+  padding: 48px 20px 64px;
+}
+
+.pagina-calendario__voltar {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pagina-calendario h1 {
+  color: var(--azul-900);
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.calendario-secao {
+  margin-bottom: 20px;
+}
+
+.calendario-secao h2 {
+  font-size: 17px;
+  color: var(--azul-900);
+  margin: 0 0 8px;
+}
+
+.calendario-secao__titulo-secundario {
+  margin-top: 28px;
+}
+
+.calendario-secao p {
+  color: var(--cinza-700);
+  font-size: 14.5px;
+  margin: 0 0 14px;
+}
+
+.calendario-link-caixa {
+  display: flex;
+  gap: 8px;
+}
+
+.calendario-link-caixa .campo {
+  flex: 1;
+  font-size: 13px;
+  color: var(--cinza-500);
+}
+
+.calendario-regenerar {
+  display: block;
+  margin-top: 10px;
+  border: none;
+  background: none;
+  color: var(--cinza-500);
+  font-size: 12.5px;
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.calendario-regenerar:hover {
+  color: var(--azul-700);
+}
+
+.calendario-em-breve {
+  font-style: italic;
+  color: var(--cinza-500) !important;
+}
+
+.opcoes-tema {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.opcao-tema {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  border: 1.5px solid var(--cinza-200);
+  border-radius: var(--raio);
+  background: var(--branco);
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--cinza-700);
+  min-width: 72px;
+}
+
+.opcao-tema--ativa {
+  border-color: var(--cor-tema);
+}
+
+.opcao-tema__amostra {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--cor-tema);
+  display: block;
+}
+
+/* --- Promo (usuário gratuito) --- */
+.promo-premium {
+  text-align: center;
+  padding: 48px 28px;
+}
+
+.promo-premium__icone {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.promo-premium h1 {
+  color: var(--azul-900);
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.promo-premium p {
+  color: var(--cinza-700);
+  margin: 0 0 24px;
+}

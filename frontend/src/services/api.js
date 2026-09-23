@@ -107,6 +107,38 @@ export const api = {
       `/tarefas/${tarefaId}/subtarefas/reordenar?${new URLSearchParams({ usuario_id: usuarioId })}`,
       { method: "PATCH", body: JSON.stringify({ ids_em_ordem: idsEmOrdem }) }
     ),
+
+  // --- Assinatura premium (SIMULADA — sem cobranca real) ---
+  obterAssinatura: (usuarioId) =>
+    request(`/assinatura?${new URLSearchParams({ usuario_id: usuarioId })}`),
+
+  ativarPremium: (usuarioId) =>
+    request(`/assinatura/ativar?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "POST",
+    }),
+
+  cancelarPremium: (usuarioId) =>
+    request(`/assinatura/cancelar?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "POST",
+    }),
+
+  atualizarTema: (usuarioId, tema) =>
+    request(`/usuarios/tema?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "PATCH",
+      body: JSON.stringify({ tema }),
+    }),
+
+  // --- Exportação de calendário (.ics) — recurso premium ---
+  obterLinkCalendario: (usuarioId) =>
+    request(`/calendario/link?${new URLSearchParams({ usuario_id: usuarioId })}`),
+
+  regenerarLinkCalendario: (usuarioId) =>
+    request(`/calendario/link/regenerar?${new URLSearchParams({ usuario_id: usuarioId })}`, {
+      method: "POST",
+    }),
+
+  urlDownloadIcs: (usuarioId) =>
+    `${API_BASE_URL}/calendario/download.ics?${new URLSearchParams({ usuario_id: usuarioId })}`,
 };
 
 export { ApiError };

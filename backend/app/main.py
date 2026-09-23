@@ -12,7 +12,7 @@ from slowapi.errors import RateLimitExceeded
 from app.middlewares.cors import register_cors
 from app.middlewares.error_handler import register_error_handlers
 from app.middlewares.rate_limit import limiter
-from app.routes import planejamento, quiz, usuarios
+from app.routes import assinatura, calendario, planejamento, quiz, usuarios
 
 logging.basicConfig(level=logging.INFO)
 
@@ -34,6 +34,8 @@ register_error_handlers(app)
 app.include_router(usuarios.router)
 app.include_router(quiz.router)
 app.include_router(planejamento.router)
+app.include_router(assinatura.router)
+app.include_router(calendario.router)
 
 
 @app.get("/", tags=["status"])

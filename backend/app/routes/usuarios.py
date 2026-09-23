@@ -1,10 +1,11 @@
 """Rota POST /usuarios (Manual, Parte VI, capítulo 39)."""
 import logging
+from uuid import UUID
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, Query, status
 
 from app.db.repositories import UsuarioRepository
-from app.models.usuario_models import UsuarioCreate, UsuarioOut
+from app.models.usuario_models import AtualizarTemaRequest, UsuarioCreate, UsuarioOut
 
 router = APIRouter(tags=["usuarios"])
 usuario_repo = UsuarioRepository()
@@ -33,3 +34,16 @@ def criar_ou_recuperar_usuario(payload: UsuarioCreate):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Não foi possível processar o cadastro do usuário no momento.",
         )
+
+
+@router.patch("/usuarios/tema", response_model=UsuarioOut)
+def atualizar_tema(payload: AtualizarTemaRequest, usuario_id: UUID = Query(...)):
+    """Atualiza a cor de destaque (tema) escolhida pelo usuário. Recurso premium."""
+    from app.services.assinatura_service import AssinaturaService
+
+    AssinaturaService().exigir_premium(usuario_id)
+
+    atualizado = usuario_repo.atualizar_tema(usuario_id, payload.tema)
+    if not atualizado:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
+    return UsuarioOut(**atualizado)

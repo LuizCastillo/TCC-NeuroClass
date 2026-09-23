@@ -12,6 +12,8 @@ import Planejamento from "./pages/Planejamento";
 import PlanejamentoNova from "./pages/PlanejamentoNova";
 import PlanejamentoDetalhe from "./pages/PlanejamentoDetalhe";
 import Foco from "./pages/Foco";
+import Premium from "./pages/Premium";
+import PlanejamentoCalendario from "./pages/PlanejamentoCalendario";
 import Privacidade from "./pages/Privacidade";
 import Termos from "./pages/Termos";
 import { QuizProvider } from "./hooks/useQuizContext";
@@ -34,8 +36,10 @@ export default function App() {
               <Route path="/ferramentas" element={<Ferramentas />} />
               <Route path="/planejamento" element={<Planejamento />} />
               <Route path="/planejamento/nova" element={<PlanejamentoNova />} />
+              <Route path="/planejamento/calendario" element={<PlanejamentoCalendario />} />
               <Route path="/planejamento/:id" element={<PlanejamentoDetalhe />} />
               <Route path="/foco" element={<Foco />} />
+              <Route path="/premium" element={<Premium />} />
               <Route path="/privacidade" element={<Privacidade />} />
               <Route path="/termos" element={<Termos />} />
             </Routes>

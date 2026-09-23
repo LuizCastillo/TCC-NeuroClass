@@ -47,6 +47,29 @@ export default function Termos() {
           usado para identificar suas tarefas e resultados no site.
         </p>
 
+        <h2>Plano premium (modo demonstração)</h2>
+        <p>
+          O NeuroClass oferece um plano premium simulado, com recursos adicionais como
+          exportação de rotina para calendários externos e personalização visual.{" "}
+          <strong>
+            Nesta fase do projeto, não há cobrança real de qualquer tipo
+          </strong>
+          . O botão de "ativar premium" apenas libera esses recursos para fins de demonstração
+          acadêmica, sem envolver nenhum processador de pagamento, cartão de crédito ou
+          transação financeira real. Qualquer valor exibido na tela é ilustrativo.
+        </p>
+        <p>
+          Caso o projeto evolua para cobrança real no futuro, estes Termos serão atualizados
+          antes de qualquer cobrança efetiva ser implementada, e os usuários serão informados
+          claramente antes de qualquer mudança.
+        </p>
+        <p>
+          O link de exportação de calendário gerado para usuários premium é pessoal: qualquer
+          pessoa que tiver acesso a esse link consegue visualizar as tarefas associadas a ele.
+          Trate esse link com o mesmo cuidado que trataria uma senha, e regenere-o pelo site caso
+          suspeite que foi compartilhado indevidamente.
+        </p>
+
         <h2>Uso adequado do site</h2>
         <p>Ao usar o NeuroClass, você concorda em não:</p>
         <ul className="pagina-artigo__lista">

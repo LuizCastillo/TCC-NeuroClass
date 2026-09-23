@@ -5,6 +5,7 @@ routes/ e services/ nunca montem SQL ou chamadas ao banco diretamente.
 """
 from typing import Any, Optional
 from uuid import UUID
+from datetime import datetime, timezone
 
 from app.db.client import get_supabase_client
 
@@ -23,6 +24,43 @@ class UsuarioRepository:
     def buscar_por_id(self, usuario_id: UUID) -> Optional[dict[str, Any]]:
         client = get_supabase_client()
         resp = client.table("usuarios").select("*").eq("id", str(usuario_id)).limit(1).execute()
+        return resp.data[0] if resp.data else None
+
+    def atualizar_plano(self, usuario_id: UUID, plano: str) -> dict[str, Any]:
+        client = get_supabase_client()
+        agora = datetime.now(timezone.utc).isoformat()
+        resp = (
+            client.table("usuarios")
+            .update({"plano": plano, "plano_atualizado_em": agora})
+            .eq("id", str(usuario_id))
+            .execute()
+        )
+        return resp.data[0]
+
+    def atualizar_tema(self, usuario_id: UUID, tema: str) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = client.table("usuarios").update({"tema": tema}).eq("id", str(usuario_id)).execute()
+        return resp.data[0]
+
+    def definir_token_calendario(self, usuario_id: UUID, token: UUID) -> dict[str, Any]:
+        client = get_supabase_client()
+        resp = (
+            client.table("usuarios")
+            .update({"token_calendario": str(token)})
+            .eq("id", str(usuario_id))
+            .execute()
+        )
+        return resp.data[0]
+
+    def buscar_por_token_calendario(self, token: UUID) -> Optional[dict[str, Any]]:
+        client = get_supabase_client()
+        resp = (
+            client.table("usuarios")
+            .select("*")
+            .eq("token_calendario", str(token))
+            .limit(1)
+            .execute()
+        )
         return resp.data[0] if resp.data else None
 
 

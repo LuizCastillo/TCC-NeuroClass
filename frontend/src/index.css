@@ -29,6 +29,33 @@
   --fonte: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Temas de cor de destaque (recurso premium, ver PlanejamentoCalendario.jsx).
+   Sobrescrevem as variáveis --azul-* usadas em todo o site — assim, trocar
+   o tema não exige duplicar estilos, só reatribuir a paleta principal. */
+:root[data-tema="verde"] {
+  --azul-900: #14532d;
+  --azul-700: #16a34a;
+  --azul-500: #22c55e;
+  --azul-100: #dcfce7;
+  --azul-50: #f0fdf4;
+}
+
+:root[data-tema="roxo"] {
+  --azul-900: #4c1d95;
+  --azul-700: #7c3aed;
+  --azul-500: #a78bfa;
+  --azul-100: #ede9fe;
+  --azul-50: #f5f3ff;
+}
+
+:root[data-tema="laranja"] {
+  --azul-900: #7c2d12;
+  --azul-700: #ea580c;
+  --azul-500: #fb923c;
+  --azul-100: #ffedd5;
+  --azul-50: #fff7ed;
+}
+
 * {
   box-sizing: border-box;
 }

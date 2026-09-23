@@ -29,6 +29,10 @@ export function UsuarioPlanejamentoProvider({ children }) {
     setCarregandoInicial(false);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.dataset.tema = usuario?.tema || "azul";
+  }, [usuario]);
+
   const identificar = useCallback(async (nome, email) => {
     const usuarioCriado = await api.criarUsuario(nome, email);
     try {
@@ -49,7 +53,16 @@ export function UsuarioPlanejamentoProvider({ children }) {
     setUsuarioState(null);
   }, []);
 
-  const value = { usuario, carregandoInicial, identificar, esquecer };
+  const atualizarUsuario = useCallback((novoUsuario) => {
+    try {
+      localStorage.setItem(CHAVE_STORAGE, JSON.stringify(novoUsuario));
+    } catch {
+      // segue mesmo sem persistir
+    }
+    setUsuarioState(novoUsuario);
+  }, []);
+
+  const value = { usuario, carregandoInicial, identificar, esquecer, atualizarUsuario };
   return (
     <UsuarioPlanejamentoContext.Provider value={value}>
       {children}
