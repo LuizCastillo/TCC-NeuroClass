@@ -39,6 +39,19 @@ def listar_tarefas(
     return service.listar_tarefas(usuario_id, data)
 
 
+@router.get("/tarefas/mes", response_model=list[TarefaOut])
+def listar_tarefas_do_mes(
+    usuario_id: UUID = Query(...),
+    ano: int = Query(..., ge=2020, le=2100),
+    mes: int = Query(..., ge=1, le=12),
+):
+    """
+    Lista todas as tarefas de um mês inteiro, usada pela exportação de
+    rotina como imagem (grade de calendário mensal).
+    """
+    return service.listar_tarefas_do_mes(usuario_id, ano, mes)
+
+
 @router.get("/tarefas/{tarefa_id}", response_model=TarefaOut)
 def obter_tarefa(tarefa_id: UUID, usuario_id: UUID = Query(...)):
     """Retorna uma tarefa e suas subtarefas."""

@@ -71,6 +71,9 @@ export const api = {
     return request(`/tarefas?${params.toString()}`);
   },
 
+  listarTarefasDoMes: (usuarioId, ano, mes) =>
+    request(`/tarefas/mes?${new URLSearchParams({ usuario_id: usuarioId, ano, mes })}`),
+
   obterTarefa: (tarefaId, usuarioId) =>
     request(`/tarefas/${tarefaId}?${new URLSearchParams({ usuario_id: usuarioId })}`),
 

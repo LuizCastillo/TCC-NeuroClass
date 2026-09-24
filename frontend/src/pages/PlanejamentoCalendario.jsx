@@ -213,6 +213,15 @@ export default function PlanejamentoCalendario() {
           Integração direta e bidirecional com a conta do Google (via OAuth) está planejada para
           uma próxima etapa do projeto.
         </p>
+
+        <h2 className="calendario-secao__titulo-secundario">Opção 4 — Baixar como imagem</h2>
+        <p>
+          Prefere algo visual para imprimir ou compartilhar? Gere sua rotina mensal como uma
+          imagem (PNG ou JPEG), com cada tarefa aparecendo no dia certo do calendário.
+        </p>
+        <Link to="/planejamento/imagem" className="botao botao--secundario">
+          Baixar como imagem (PNG/JPEG)
+        </Link>
       </div>
 
       {erro && (

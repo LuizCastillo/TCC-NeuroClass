@@ -64,6 +64,26 @@ class PlanejamentoService:
             resultado.append(self._montar_tarefa_out(tarefa, subtarefas))
         return resultado
 
+    def listar_tarefas_do_mes(self, usuario_id: UUID, ano: int, mes: int) -> list[TarefaOut]:
+        """
+        Retorna todas as tarefas de um mês (usado pela exportação de rotina
+        como imagem — grade de calendário mensal).
+        """
+        primeiro_dia = Date(ano, mes, 1)
+        if mes == 12:
+            primeiro_dia_mes_seguinte = Date(ano + 1, 1, 1)
+        else:
+            primeiro_dia_mes_seguinte = Date(ano, mes + 1, 1)
+
+        tarefas = self.tarefa_repo.listar_por_usuario_intervalo(
+            usuario_id, primeiro_dia.isoformat(), primeiro_dia_mes_seguinte.isoformat()
+        )
+        resultado = []
+        for tarefa in tarefas:
+            subtarefas = self.subtarefa_repo.listar_por_tarefa(tarefa["id"])
+            resultado.append(self._montar_tarefa_out(tarefa, subtarefas))
+        return resultado
+
     def obter_tarefa(self, tarefa_id: UUID, usuario_id: UUID) -> TarefaOut:
         tarefa = self._buscar_tarefa_ou_404(tarefa_id)
         self._validar_dono(tarefa, usuario_id)

@@ -1,0 +1,170 @@
+.pagina-imagem {
+  padding: 48px 20px 64px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pagina-imagem__voltar {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pagina-imagem h1 {
+  color: var(--azul-900);
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.pagina-imagem__intro {
+  color: var(--cinza-700);
+  font-size: 14.5px;
+  margin: 0 0 20px;
+}
+
+.pagina-imagem__controles {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.pagina-imagem__controles > div {
+  flex: 1;
+  min-width: 160px;
+}
+
+.pagina-imagem__acoes-download {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.grade-calendario-wrapper {
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+/* A grade em si é o elemento capturado pelo html2canvas — por isso tem
+   fundo branco explícito e largura mínima fixa, independente de tema ou
+   tamanho de tela, para a imagem exportada ficar sempre legível. */
+.grade-calendario {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 700px;
+}
+
+.grade-calendario__titulo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.grade-calendario__cabecalho,
+.grade-calendario__semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.grade-calendario__dia-semana {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+
+.grade-calendario__semana {
+  margin-top: 4px;
+}
+
+.grade-calendario__dia {
+  min-height: 84px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: #ffffff;
+}
+
+.grade-calendario__dia--vazio {
+  background: #f8fafc;
+  border-color: transparent;
+}
+
+.grade-calendario__numero {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.grade-calendario__tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.grade-calendario__tarefa {
+  font-size: 9.5px;
+  line-height: 1.3;
+  background: #eff6ff;
+  color: #1e3a8a;
+  padding: 1px 4px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.grade-calendario__tarefa--concluida {
+  background: #f0fdf4;
+  color: #166534;
+  text-decoration: line-through;
+}
+
+.grade-calendario__mais {
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* --- Promo (usuário gratuito) --- */
+.promo-premium {
+  text-align: center;
+  padding: 48px 28px;
+}
+
+.promo-premium__icone {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.promo-premium h1 {
+  color: var(--azul-900);
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.promo-premium p {
+  color: var(--cinza-700);
+  margin: 0 0 24px;
+}
+
+@media (max-width: 640px) {
+  .pagina-imagem__controles {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

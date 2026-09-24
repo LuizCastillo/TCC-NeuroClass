@@ -166,6 +166,23 @@ class TarefaRepository:
         resp = query.order("horario", desc=False, nullsfirst=False).execute()
         return resp.data
 
+    def listar_por_usuario_intervalo(
+        self, usuario_id: UUID, data_inicio: str, data_fim: str
+    ) -> list[dict[str, Any]]:
+        """data_fim é exclusivo (usado para intervalos de mês: primeiro dia do mês seguinte)."""
+        client = get_supabase_client()
+        resp = (
+            client.table("tarefas")
+            .select("*")
+            .eq("usuario_id", str(usuario_id))
+            .gte("data", data_inicio)
+            .lt("data", data_fim)
+            .order("data", desc=False)
+            .order("horario", desc=False, nullsfirst=False)
+            .execute()
+        )
+        return resp.data
+
     def buscar_por_id(self, tarefa_id: UUID) -> Optional[dict[str, Any]]:
         client = get_supabase_client()
         resp = client.table("tarefas").select("*").eq("id", str(tarefa_id)).limit(1).execute()
