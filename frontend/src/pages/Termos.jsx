@@ -8,7 +8,7 @@ export default function Termos() {
         ← Voltar ao início
       </Link>
       <h1>Termos de Uso</h1>
-      <p className="pagina-artigo__fonte">Última atualização: setembro de 2026</p>
+      <p className="pagina-artigo__fonte">Última atualização: outubro de 2026</p>
 
       <div className="pagina-artigo__corpo">
         <p>
@@ -47,21 +47,32 @@ export default function Termos() {
           usado para identificar suas tarefas e resultados no site.
         </p>
 
-        <h2>Plano premium (modo demonstração)</h2>
+        <h2>Plano gratuito e plano Premium (pago)</h2>
         <p>
-          O NeuroClass oferece um plano premium simulado, com recursos adicionais como
-          exportação de rotina para calendários externos e personalização visual.{" "}
-          <strong>
-            Nesta fase do projeto, não há cobrança real de qualquer tipo
-          </strong>
-          . O botão de "ativar premium" apenas libera esses recursos para fins de demonstração
-          acadêmica, sem envolver nenhum processador de pagamento, cartão de crédito ou
-          transação financeira real. Qualquer valor exibido na tela é ilustrativo.
+          O NeuroClass funciona em um modelo <em>freemium</em>. O <strong>plano gratuito</strong>{" "}
+          inclui o conteúdo educativo, o quiz e as ferramentas de organização da rotina (tarefas,
+          subtarefas e modo foco). O <strong>plano Premium</strong> custa{" "}
+          <strong>R$ 9,99 por mês</strong> e libera recursos adicionais, como exportação da rotina
+          para calendários externos (.ics), exportação do mês em imagem (PNG/JPEG) e
+          personalização visual do site.
         </p>
         <p>
-          Caso o projeto evolua para cobrança real no futuro, estes Termos serão atualizados
-          antes de qualquer cobrança efetiva ser implementada, e os usuários serão informados
-          claramente antes de qualquer mudança.
+          A assinatura é mensal e renovada automaticamente. Você pode cancelá-la a qualquer
+          momento pelo site; o cancelamento vale para o ciclo seguinte e os recursos premium
+          permanecem disponíveis até o fim do período já pago. Em contratações feitas pela
+          internet, você também pode desistir em até 7 dias após a contratação, conforme o
+          Código de Defesa do Consumidor. Podemos reajustar o valor, mas avisaremos antes e a mudança
+          só vale para os ciclos seguintes.
+        </p>
+        <p>
+          Os pagamentos serão processados por um processador de pagamento terceirizado: o
+          NeuroClass não recebe nem armazena número de cartão.{" "}
+          <strong>
+            Status atual: a integração de pagamento ainda está em andamento. Nesta versão de
+            apresentação acadêmica, a assinatura é de teste e nenhum valor é cobrado
+          </strong>
+          . A cobrança real só começará depois de aviso claro aos usuários e da atualização
+          destes Termos.
         </p>
         <p>
           O link de exportação de calendário gerado para usuários premium é pessoal: qualquer

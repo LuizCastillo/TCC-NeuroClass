@@ -8,7 +8,7 @@ export default function Privacidade() {
         ← Voltar ao início
       </Link>
       <h1>Política de Privacidade</h1>
-      <p className="pagina-artigo__fonte">Última atualização: setembro de 2026</p>
+      <p className="pagina-artigo__fonte">Última atualização: outubro de 2026</p>
 
       <div className="pagina-artigo__corpo">
         <p>
@@ -68,13 +68,21 @@ export default function Privacidade() {
           para nenhuma informação sensível além de tarefas escolares comuns.
         </p>
 
-        <h2>Plano premium (modo demonstração) e link de calendário</h2>
+        <h2>Plano Premium (R$ 9,99/mês) e link de calendário</h2>
         <p>
-          O site oferece um plano premium simulado, sem cobrança real (ver{" "}
-          <Link to="/termos">Termos de Uso</Link> para detalhes). Ao ativar esse plano, associamos
-          ao seu cadastro a informação de que você está no plano "premium", apenas para liberar
-          recursos adicionais — nenhum dado de pagamento é coletado, pois nenhum pagamento
-          acontece de fato.
+          O plano Premium é pago (R$ 9,99 por mês; ver <Link to="/termos">Termos de Uso</Link>).
+          Ao assinar, associamos ao seu cadastro o plano "premium", a data de ativação e o status
+          da assinatura, apenas para liberar os recursos adicionais e gerenciar a cobrança.
+        </p>
+        <p>
+          Quando a cobrança estiver ativa, os dados de pagamento (como cartão) serão tratados
+          diretamente por um processador de pagamento terceirizado, que passa a ser um operador de
+          dados. O NeuroClass não coleta nem armazena número de cartão; guardamos apenas
+          informações como status da assinatura e identificador da transação.{" "}
+          <strong>
+            Nesta versão de apresentação acadêmica a integração de pagamento ainda não está ativa
+            e nenhum dado de pagamento é coletado.
+          </strong>
         </p>
         <p>
           Usuários premium podem gerar um <strong>link pessoal de calendário</strong> (.ics) para

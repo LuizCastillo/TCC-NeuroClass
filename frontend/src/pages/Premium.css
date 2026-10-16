@@ -69,3 +69,9 @@
 .botao-cancelar-premium:hover {
   color: var(--vermelho-600);
 }
+
+.premium-card__detalhe {
+  margin: 0 0 1rem;
+  color: var(--cor-texto-suave, #475569);
+  font-size: 0.95rem;
+}

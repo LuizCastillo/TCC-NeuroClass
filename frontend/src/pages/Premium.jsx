@@ -53,16 +53,24 @@ export default function Premium() {
   return (
     <div className="container container--estreito pagina-premium">
       <div className="premium-aviso-simulacao" role="note">
-        <strong>Modo demonstração</strong> — este é um protótipo de TCC. Nenhuma cobrança real
-        acontece aqui; "ativar" apenas libera os recursos premium para fins de demonstração.
+        <strong>Pagamento em integração</strong> — nesta versão de apresentação do TCC, a
+        assinatura é de teste: os recursos premium são liberados, mas nenhum valor é cobrado
+        ainda. Você será avisado antes de qualquer cobrança real.
       </div>
 
       <div className="cartao premium-card">
         <span className="rotulo-tag">{ehPremium ? "Seu plano atual" : "Upgrade"}</span>
         <h1>{ehPremium ? "Você já é premium ✓" : "NeuroClass Premium"}</h1>
         <p className="premium-card__preco">
-          {ehPremium ? "Aproveite todos os recursos abaixo." : "R$ 9,90/mês (simulado)"}
+          {ehPremium ? "Aproveite todos os recursos abaixo." : "R$ 9,99/mês"}
         </p>
+
+        {!ehPremium && (
+          <p className="premium-card__detalhe">
+            Cobrança mensal, cancele quando quiser. Conteúdo, quiz e ferramentas de rotina
+            continuam gratuitos.
+          </p>
+        )}
 
         <ul className="premium-lista-beneficios">
           {BENEFICIOS.map((b) => (
@@ -100,7 +108,7 @@ export default function Premium() {
             onClick={ativar}
             disabled={processando}
           >
-            {processando ? "Ativando..." : "Ativar premium (simulado)"}
+            {processando ? "Processando..." : "Assinar Premium — R$ 9,99/mês"}
           </button>
         )}
       </div>
