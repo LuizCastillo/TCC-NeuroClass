@@ -4,12 +4,13 @@ import { api, ApiError } from "../services/api";
 import { useUsuarioPlanejamento } from "../hooks/useUsuarioPlanejamento";
 import IdentificacaoUsuario from "../components/IdentificacaoUsuario";
 import "./Premium.css";
+import Icone from "../components/Icone";
 
 const BENEFICIOS = [
-  { icone: "🗓️", texto: "Exportar sua rotina para Google Calendar, Apple Calendar ou Outlook" },
-  { icone: "🎨", texto: "Personalizar a cor de destaque do site" },
-  { icone: "🔔", texto: "Lembretes por e-mail antes de cada tarefa (em breve)" },
-  { icone: "📊", texto: "Relatório semanal de produtividade por e-mail (em breve)" },
+  { icone: "calendario", texto: "Exportar sua rotina para Google Calendar, Apple Calendar ou Outlook" },
+  { icone: "cor", texto: "Personalizar a cor de destaque do site" },
+  { icone: "sino", texto: "Lembretes por e-mail antes de cada tarefa (em breve)" },
+  { icone: "grafico", texto: "Relatório semanal de produtividade por e-mail (em breve)" },
 ];
 
 export default function Premium() {
@@ -60,7 +61,7 @@ export default function Premium() {
 
       <div className="cartao premium-card">
         <span className="rotulo-tag">{ehPremium ? "Seu plano atual" : "Upgrade"}</span>
-        <h1>{ehPremium ? "Você já é premium ✓" : "NeuroClass Premium"}</h1>
+        <h1>{ehPremium ? "Você já é premium" : "NeuroClass Premium"}</h1>
         <p className="premium-card__preco">
           {ehPremium ? "Aproveite todos os recursos abaixo." : "R$ 9,99/mês"}
         </p>
@@ -75,7 +76,7 @@ export default function Premium() {
         <ul className="premium-lista-beneficios">
           {BENEFICIOS.map((b) => (
             <li key={b.texto}>
-              <span aria-hidden="true">{b.icone}</span>
+              <Icone nome={b.icone} />
               {b.texto}
             </li>
           ))}

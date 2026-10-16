@@ -6,12 +6,12 @@ import IdentificacaoUsuario from "../components/IdentificacaoUsuario";
 import "./PlanejamentoNova.css";
 
 const CATEGORIAS = [
-  { valor: "estudos", rotulo: "Estudos", icone: "📚" },
-  { valor: "trabalhos", rotulo: "Trabalhos", icone: "📝" },
-  { valor: "escola", rotulo: "Escola", icone: "🏫" },
-  { valor: "leitura", rotulo: "Leitura", icone: "📖" },
-  { valor: "projetos", rotulo: "Projetos", icone: "💻" },
-  { valor: "outros", rotulo: "Outros", icone: "📌" },
+  { valor: "estudos", rotulo: "Estudos" },
+  { valor: "trabalhos", rotulo: "Trabalhos" },
+  { valor: "escola", rotulo: "Escola" },
+  { valor: "leitura", rotulo: "Leitura" },
+  { valor: "projetos", rotulo: "Projetos" },
+  { valor: "outros", rotulo: "Outros" },
 ];
 
 const PRIORIDADES = [
@@ -182,7 +182,6 @@ export default function PlanejamentoNova() {
                     onClick={() => setCategoria(c.valor)}
                     aria-pressed={categoria === c.valor}
                   >
-                    <span aria-hidden="true">{c.icone}</span>
                     {c.rotulo}
                   </button>
                 ))}

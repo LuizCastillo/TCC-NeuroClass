@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
+import Icone from "../components/Icone";
 
 export default function Home() {
   return (
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="home-cards">
           <div className="cartao home-card">
             <span className="home-card__icone" aria-hidden="true">
-              📚
+              <Icone nome="livro" />
             </span>
             <h3>Conteúdo educativo</h3>
             <p>
@@ -41,7 +42,7 @@ export default function Home() {
           </div>
           <div className="cartao home-card">
             <span className="home-card__icone" aria-hidden="true">
-              ✅
+              <Icone nome="quiz" />
             </span>
             <h3>Quiz interativo</h3>
             <p>
@@ -51,7 +52,7 @@ export default function Home() {
           </div>
           <div className="cartao home-card">
             <span className="home-card__icone" aria-hidden="true">
-              🚫
+              <Icone nome="proibido" />
             </span>
             <h3>Mitos x fatos</h3>
             <p>
@@ -61,7 +62,7 @@ export default function Home() {
           </div>
           <div className="cartao home-card">
             <span className="home-card__icone" aria-hidden="true">
-              🗓️
+              <Icone nome="calendario" />
             </span>
             <h3>Ferramentas para o dia a dia</h3>
             <p>

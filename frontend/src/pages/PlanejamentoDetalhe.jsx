@@ -4,6 +4,7 @@ import { api, ApiError } from "../services/api";
 import { useUsuarioPlanejamento } from "../hooks/useUsuarioPlanejamento";
 import IdentificacaoUsuario from "../components/IdentificacaoUsuario";
 import "./PlanejamentoDetalhe.css";
+import Icone from "../components/Icone";
 
 const PRIORIDADE_ROTULO = { baixa: "Baixa", media: "Média", alta: "Alta" };
 const CATEGORIA_ROTULO = {
@@ -151,7 +152,7 @@ export default function PlanejamentoDetalhe() {
             onClick={alternarConcluidaTarefa}
             aria-pressed={tarefa.concluida}
           >
-            {tarefa.concluida ? "✓" : ""}
+            {tarefa.concluida ? <Icone nome="check" /> : null}
           </button>
           <h1 className={tarefa.concluida ? "detalhe-tarefa__titulo--concluida" : ""}>
             {tarefa.titulo}
@@ -201,7 +202,7 @@ export default function PlanejamentoDetalhe() {
                   aria-pressed={subtarefa.concluida}
                   aria-label={subtarefa.concluida ? "Marcar como não concluída" : "Marcar como concluída"}
                 >
-                  {subtarefa.concluida ? "✓" : ""}
+                  {subtarefa.concluida ? <Icone nome="check" /> : null}
                 </button>
                 <span
                   className={
@@ -217,7 +218,7 @@ export default function PlanejamentoDetalhe() {
                   onClick={() => excluirSubtarefa(subtarefa)}
                   aria-label={`Excluir etapa ${subtarefa.titulo}`}
                 >
-                  ✕
+                  <Icone nome="fechar" />
                 </button>
               </li>
             ))}

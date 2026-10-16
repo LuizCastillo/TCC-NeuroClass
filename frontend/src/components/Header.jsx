@@ -15,7 +15,7 @@ export default function Header() {
       <div className="container cabecalho__conteudo">
         <NavLink to="/" className="cabecalho__marca" aria-label="NeuroClass — página inicial">
           <span className="cabecalho__logo" aria-hidden="true">
-            🧠
+            N
           </span>
           NeuroClass
         </NavLink>

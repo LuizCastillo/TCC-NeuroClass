@@ -46,9 +46,10 @@
   color: var(--cinza-900);
 }
 
-.premium-lista-beneficios span[aria-hidden] {
-  font-size: 20px;
+.premium-lista-beneficios .icone {
+  font-size: 22px;
   flex-shrink: 0;
+  color: var(--azul-700);
 }
 
 .premium-acoes {

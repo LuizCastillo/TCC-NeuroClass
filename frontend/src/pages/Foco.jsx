@@ -144,7 +144,7 @@ export default function Foco() {
               Marcar tarefa como concluída
             </button>
           )}
-          {tarefaConcluida && <p className="foco-concluido__confirmacao">Tarefa marcada como concluída ✓</p>}
+          {tarefaConcluida && <p className="foco-concluido__confirmacao">Tarefa marcada como concluída</p>}
 
           <div className="foco-concluido__acoes">
             <button type="button" className="botao botao--secundario" onClick={iniciarPausa}>

@@ -1,23 +1,24 @@
 import { Link } from "react-router-dom";
 import "./Ferramentas.css";
+import Icone from "../components/Icone";
 
 const FERRAMENTAS = [
   {
-    icone: "📋",
+    icone: "lista",
     titulo: "Organizar minhas tarefas",
     descricao: "Transforme suas atividades em tarefas menores e mais fáceis de acompanhar.",
     botao: "Organizar tarefas",
     para: "/planejamento",
   },
   {
-    icone: "🗓️",
+    icone: "calendario",
     titulo: "Criar minha rotina",
     descricao: "Monte uma rotina personalizada com horários, tarefas, pausas e prioridades.",
     botao: "Criar rotina",
     para: "/planejamento",
   },
   {
-    icone: "⏱️",
+    icone: "relogio",
     titulo: "Modo foco",
     descricao: "Concentre-se em uma tarefa por vez usando um temporizador simples.",
     botao: "Começar foco",
@@ -37,7 +38,7 @@ export default function Ferramentas() {
         {FERRAMENTAS.map((f) => (
           <div key={f.titulo} className="cartao ferramenta-card">
             <span className="ferramenta-card__icone" aria-hidden="true">
-              {f.icone}
+              <Icone nome={f.icone} />
             </span>
             <h2>{f.titulo}</h2>
             <p>{f.descricao}</p>

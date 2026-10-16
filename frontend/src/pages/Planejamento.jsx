@@ -94,7 +94,7 @@ export default function Planejamento() {
         <div className="planejamento-cabecalho__linha-topo">
           <p className="planejamento-cabecalho__saudacao">Olá, {usuario.nome.split(" ")[0]}!</p>
           <Link to="/planejamento/calendario" className="planejamento-cabecalho__link-calendario">
-            {usuario.plano === "premium" ? "📅 Exportar calendário" : "🔒 Premium"}
+            {usuario.plano === "premium" ? "Exportar calendário" : "Premium"}
           </Link>
         </div>
         <div className="planejamento-navegacao-data">

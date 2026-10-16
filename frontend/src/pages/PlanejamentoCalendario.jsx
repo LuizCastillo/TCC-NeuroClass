@@ -4,6 +4,7 @@ import { api, ApiError } from "../services/api";
 import { useUsuarioPlanejamento } from "../hooks/useUsuarioPlanejamento";
 import IdentificacaoUsuario from "../components/IdentificacaoUsuario";
 import "./PlanejamentoCalendario.css";
+import Icone from "../components/Icone";
 
 const TEMAS = [
   { valor: "azul", rotulo: "Azul", cor: "#1d4ed8" },
@@ -92,7 +93,7 @@ function PromoPremium() {
     <div className="container container--estreito pagina-calendario">
       <div className="cartao promo-premium">
         <span aria-hidden="true" className="promo-premium__icone">
-          🔒
+          <Icone nome="cadeado" />
         </span>
         <h1>Recurso premium</h1>
         <p>
@@ -114,6 +115,7 @@ export default function PlanejamentoCalendario() {
   const [erro, setErro] = useState("");
   const [copiado, setCopiado] = useState(false);
   const [salvandoTema, setSalvandoTema] = useState(false);
+  const [erroTema, setErroTema] = useState("");
 
   useEffect(() => {
     if (!usuario || usuario.plano !== "premium") {
@@ -156,11 +158,14 @@ export default function PlanejamentoCalendario() {
 
   async function escolherTema(tema) {
     setSalvandoTema(true);
+    setErroTema("");
     try {
       await api.atualizarTema(usuario.id, tema);
       atualizarUsuario({ ...usuario, tema });
-    } catch {
-      // silencioso — tema é cosmético, não crítico
+    } catch (e) {
+      setErroTema(
+        e instanceof ApiError ? e.message : "Não foi possível trocar a cor agora. Tente novamente."
+      );
     } finally {
       setSalvandoTema(false);
     }
@@ -248,6 +253,11 @@ export default function PlanejamentoCalendario() {
             </button>
           ))}
         </div>
+        {erroTema && (
+          <p className="mensagem-erro" role="alert">
+            {erroTema}
+          </p>
+        )}
       </div>
     </div>
   );

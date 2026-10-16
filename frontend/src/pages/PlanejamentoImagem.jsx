@@ -4,6 +4,7 @@ import { api, ApiError } from "../services/api";
 import { useUsuarioPlanejamento } from "../hooks/useUsuarioPlanejamento";
 import IdentificacaoUsuario from "../components/IdentificacaoUsuario";
 import "./PlanejamentoImagem.css";
+import Icone from "../components/Icone";
 
 const DIAS_SEMANA = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 const MAX_TAREFAS_VISIVEIS_POR_DIA = 3;
@@ -40,7 +41,7 @@ function PromoPremium() {
     <div className="container container--estreito pagina-imagem">
       <div className="cartao promo-premium">
         <span aria-hidden="true" className="promo-premium__icone">
-          🔒
+          <Icone nome="cadeado" />
         </span>
         <h1>Recurso premium</h1>
         <p>Baixar sua rotina mensal como imagem (PNG ou JPEG) é um recurso exclusivo do plano premium.</p>

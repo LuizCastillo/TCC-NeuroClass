@@ -1,12 +1,13 @@
+import Icone from "./Icone";
 import "./TarefaItem.css";
 
-const CATEGORIA_ICONE = {
-  estudos: "📚",
-  trabalhos: "📝",
-  escola: "🏫",
-  leitura: "📖",
-  projetos: "💻",
-  outros: "📌",
+const CATEGORIA_ROTULO = {
+  estudos: "Estudos",
+  trabalhos: "Trabalhos",
+  escola: "Escola",
+  leitura: "Leitura",
+  projetos: "Projetos",
+  outros: "Outros",
 };
 
 const PRIORIDADE_ROTULO = { baixa: "Baixa", media: "Média", alta: "Alta" };
@@ -30,7 +31,7 @@ export default function TarefaItem({ tarefa, onAlternarConcluida, onAbrir }) {
         aria-pressed={tarefa.concluida}
         aria-label={tarefa.concluida ? "Marcar como não concluída" : "Marcar como concluída"}
       >
-        {tarefa.concluida ? "✓" : ""}
+        {tarefa.concluida ? <Icone nome="check" /> : null}
       </button>
 
       <button type="button" className="tarefa-item__conteudo" onClick={() => onAbrir(tarefa)}>
@@ -38,9 +39,6 @@ export default function TarefaItem({ tarefa, onAlternarConcluida, onAbrir }) {
           {formatarHorario(tarefa.horario) && (
             <span className="tarefa-item__horario">{formatarHorario(tarefa.horario)}</span>
           )}
-          <span className="tarefa-item__icone" aria-hidden="true">
-            {CATEGORIA_ICONE[tarefa.categoria]}
-          </span>
           <span className="tarefa-item__titulo">{tarefa.titulo}</span>
         </div>
         <div className="tarefa-item__meta">

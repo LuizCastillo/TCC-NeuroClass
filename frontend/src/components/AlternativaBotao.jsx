@@ -1,4 +1,5 @@
 import "./AlternativaBotao.css";
+import Icone from "./Icone";
 
 /**
  * Botão de alternativa do quiz. Estados visuais (Manual, capítulo 56):
@@ -35,17 +36,17 @@ export default function AlternativaBotao({
       <span className="alternativa__texto">{texto}</span>
       {estado === "correta" && (
         <span className="alternativa__icone" aria-hidden="true">
-          ✓
+          <Icone nome="check" />
         </span>
       )}
       {estado === "incorreta" && (
         <span className="alternativa__icone" aria-hidden="true">
-          ✕
+          <Icone nome="fechar" />
         </span>
       )}
       {estado === "correta-revelada" && (
         <span className="alternativa__icone" aria-hidden="true">
-          ✓
+          <Icone nome="check" />
         </span>
       )}
     </button>

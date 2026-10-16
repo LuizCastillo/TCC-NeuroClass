@@ -6,7 +6,7 @@ dificuldade.
 
 Projeto de TCC — Técnico em Informática para Internet, Etec Albert Einstein, 2026.
 
-> ⚠️ **Importante:** o NeuroClass tem finalidade exclusivamente educativa. Ele **não**
+> **Importante:** o NeuroClass tem finalidade exclusivamente educativa. Ele **não**
 > realiza diagnóstico de TDAH. O diagnóstico deve sempre ser feito por um profissional de
 > saúde qualificado.
 
