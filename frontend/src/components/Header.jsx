@@ -14,10 +14,10 @@ export default function Header() {
     <header className="cabecalho">
       <div className="container cabecalho__conteudo">
         <NavLink to="/" className="cabecalho__marca" aria-label="NeuroClass — página inicial">
-          <span className="cabecalho__logo" aria-hidden="true">
-            N
+          <img src="/logo-icone.svg" alt="" className="cabecalho__logo" width="38" height="38" />
+          <span className="cabecalho__nome">
+            Neuro<span className="cabecalho__nome-destaque">Class</span>
           </span>
-          NeuroClass
         </NavLink>
         <nav className="cabecalho__nav" aria-label="Navegação principal">
           {LINKS.map((link) => (
