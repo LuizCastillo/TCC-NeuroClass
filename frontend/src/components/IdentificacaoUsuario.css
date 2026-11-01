@@ -3,9 +3,8 @@
 }
 
 .identificacao-usuario h1 {
-  color: var(--azul-900);
-  font-size: 26px;
-  margin-bottom: 8px;
+  font-size: clamp(32px, 5vw, 44px);
+  margin: 0 0 12px;
 }
 
 .identificacao-usuario__intro {
