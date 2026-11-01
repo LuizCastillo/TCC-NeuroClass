@@ -96,7 +96,7 @@ export default function ConteudoDetalhe() {
           </Link>
         </div>
 
-        <Link to={`/conteudo/${proximo.slug}`} className="bloco artigo-proximo">
+        <Link to={`/conteudo/${proximo.slug}`} className="bloco bloco--azul artigo-proximo">
           <span>Próximo artigo</span>
           <strong>{proximo.titulo}</strong>
         </Link>

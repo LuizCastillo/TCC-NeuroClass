@@ -85,6 +85,7 @@
   font-weight: 800;
   color: var(--azul-900);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .foco-timer__relogio {
@@ -141,7 +142,7 @@
 
 @media (max-width: 560px) {
   .foco-timer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 20px;
   }
 }

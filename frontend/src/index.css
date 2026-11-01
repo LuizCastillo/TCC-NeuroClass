@@ -85,6 +85,7 @@ h3 {
   letter-spacing: -0.02em;
   line-height: 1.1;
   color: var(--azul-900);
+  overflow-wrap: anywhere;
 }
 
 body {

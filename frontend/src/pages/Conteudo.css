@@ -535,7 +535,6 @@
 .artigo-proximo {
   --cor: var(--bloco-agua);
   text-decoration: none;
-  background: var(--azul-700);
   padding: 20px 26px;
 }
 
