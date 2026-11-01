@@ -1,51 +1,67 @@
 .rodape {
-  background: var(--cinza-100);
-  border-top: 1px solid var(--cinza-200);
-  margin-top: 48px;
+  background: var(--azul-900);
+  color: var(--branco);
+  margin-top: 64px;
+}
+
+/* Faixa com as nove cores dos blocos. */
+.rodape::before {
+  content: "";
+  display: block;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--bloco-amarelo) 0 11.11%,
+    var(--bloco-rosa) 0 22.22%,
+    var(--bloco-verde) 0 33.33%,
+    var(--bloco-lilas) 0 44.44%,
+    var(--bloco-laranja) 0 55.55%,
+    var(--bloco-agua) 0 66.66%,
+    var(--bloco-coral) 0 77.77%,
+    var(--bloco-lima) 0 88.88%,
+    var(--bloco-celeste) 0
+  );
 }
 
 .rodape__conteudo {
-  padding: 28px 20px;
-  text-align: center;
+  padding: 32px 20px;
 }
 
 .rodape__aviso {
-  font-size: 14px;
-  color: var(--cinza-700);
-  font-weight: 600;
-  max-width: 640px;
-  margin: 0 auto 10px;
+  font-size: 16px;
+  font-weight: 700;
+  max-width: 680px;
+  margin: 0 0 10px;
 }
 
 .rodape__lgpd {
-  font-size: 13px;
-  color: var(--cinza-500);
-  max-width: 640px;
-  margin: 0 auto 10px;
+  font-size: 14px;
+  color: var(--azul-100);
+  max-width: 680px;
+  margin: 0 0 14px;
 }
 
 .rodape__links {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
-  font-size: 13px;
-  margin-bottom: 12px;
-  color: var(--cinza-500);
+  font-size: 14px;
+  margin-bottom: 14px;
+  color: var(--azul-100);
 }
 
 .rodape__links a {
-  color: var(--azul-700);
-  text-decoration: none;
-  font-weight: 600;
+  color: var(--branco);
+  font-weight: 700;
 }
 
-.rodape__links a:hover {
-  text-decoration: underline;
+.rodape__links a:focus-visible {
+  outline-color: var(--bloco-amarelo);
 }
 
 .rodape__creditos {
-  font-size: 12px;
-  color: var(--cinza-500);
+  font-size: 13px;
+  color: var(--azul-100);
   margin: 0;
 }

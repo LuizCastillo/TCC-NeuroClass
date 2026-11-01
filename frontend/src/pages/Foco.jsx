@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api } from "../services/api";
 import { useUsuarioPlanejamento } from "../hooks/useUsuarioPlanejamento";
+import { blocosApagados } from "../data/focoBlocos";
 import "./Foco.css";
 
 const DURACOES_FOCO = [15, 25, 45, 60];
@@ -161,6 +162,10 @@ export default function Foco() {
 
   // fase === "focando" | "pausa"
   const emPausa = fase === "pausa";
+  const apagados = blocosApagados(
+    segundosRestantes,
+    (emPausa ? duracaoPausaMin : duracaoFocoMin) * 60
+  );
   return (
     <div className="container container--estreito pagina-foco">
       <div className={"cartao foco-timer" + (emPausa ? " foco-timer--pausa" : "")}>
@@ -168,16 +173,13 @@ export default function Foco() {
         <p className="foco-timer__relogio" aria-live="polite">
           {formatarTempo(segundosRestantes)}
         </p>
-        <div className="foco-timer__trilha">
-          <div
-            className="foco-timer__preenchimento"
-            style={{
-              width: `${
-                100 -
-                (segundosRestantes / ((emPausa ? duracaoPausaMin : duracaoFocoMin) * 60)) * 100
-              }%`,
-            }}
-          />
+        <div className="foco-timer__blocos" aria-hidden="true">
+          {Array.from({ length: 20 }, (_, i) => (
+            <span
+              key={i}
+              className={i < apagados ? "foco-timer__bloco--apagado" : undefined}
+            />
+          ))}
         </div>
 
         <div className="foco-timer__acoes">

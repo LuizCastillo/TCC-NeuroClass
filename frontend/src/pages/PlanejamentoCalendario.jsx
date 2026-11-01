@@ -8,9 +8,9 @@ import Icone from "../components/Icone";
 
 const TEMAS = [
   { valor: "azul", rotulo: "Azul", cor: "#1d4ed8" },
-  { valor: "verde", rotulo: "Verde", cor: "#16a34a" },
+  { valor: "verde", rotulo: "Verde", cor: "#15803d" },
   { valor: "roxo", rotulo: "Roxo", cor: "#7c3aed" },
-  { valor: "laranja", rotulo: "Laranja", cor: "#ea580c" },
+  { valor: "laranja", rotulo: "Laranja", cor: "#c2410c" },
 ];
 
 const GUIAS = {

@@ -1,12 +1,52 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Icone from "../components/Icone";
+import { MOSAICO } from "../data/mosaico";
+
+const RECURSOS = [
+  {
+    icone: "livro",
+    titulo: "Conteúdo educativo",
+    texto:
+      "Explicações claras sobre o que é o TDAH, seus sintomas, desafios escolares comuns e estratégias de apoio — sempre com a fonte científica citada.",
+    para: "/conteudo",
+    cor: "amarelo",
+    variante: "bloco--azul",
+  },
+  {
+    icone: "quiz",
+    titulo: "Quiz interativo",
+    texto:
+      "Teste seus conhecimentos em três níveis de dificuldade, com feedback imediato e explicação de cada resposta.",
+    para: "/quiz",
+    cor: "rosa",
+    variante: "bloco--claro",
+  },
+  {
+    icone: "proibido",
+    titulo: "Mitos x fatos",
+    texto:
+      "Desconstruímos ideias equivocadas comuns sobre o TDAH com base em evidências científicas atuais.",
+    para: "/conteudo/mitos-e-fatos",
+    cor: "verde",
+    variante: "bloco--escuro",
+  },
+  {
+    icone: "calendario",
+    titulo: "Ferramentas para o dia a dia",
+    texto:
+      "Organize tarefas, monte sua rotina escolar e use o modo foco para se concentrar em uma atividade por vez.",
+    para: "/ferramentas",
+    cor: "lilas",
+    variante: "bloco--claro",
+  },
+];
 
 export default function Home() {
   return (
     <div className="pagina-home">
-      <section className="home-hero">
-        <div className="container container--estreito home-hero__conteudo">
+      <section className="container home-hero">
+        <div className="home-hero__conteudo">
           <span className="rotulo-tag">Plataforma educativa sobre TDAH</span>
           <h1 className="home-hero__titulo">
             Entenda o TDAH com conteúdo confiável e testes seus conhecimentos
@@ -25,55 +65,41 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <nav className="home-mosaico" aria-label="Atalhos por tema">
+          {MOSAICO.map((bloco) => (
+            <Link
+              key={bloco.rotulo}
+              to={bloco.para}
+              className="bloco home-mosaico__bloco"
+              style={{ "--cor": `var(--bloco-${bloco.cor})` }}
+            >
+              {bloco.rotulo}
+            </Link>
+          ))}
+        </nav>
       </section>
 
       <section className="container home-secao">
         <h2 className="home-secao__titulo">O que você encontra aqui</h2>
         <div className="home-cards">
-          <div className="cartao home-card">
-            <span className="home-card__icone" aria-hidden="true">
-              <Icone nome="livro" />
-            </span>
-            <h3>Conteúdo educativo</h3>
-            <p>
-              Explicações claras sobre o que é o TDAH, seus sintomas, desafios escolares comuns e
-              estratégias de apoio — sempre com a fonte científica citada.
-            </p>
-          </div>
-          <div className="cartao home-card">
-            <span className="home-card__icone" aria-hidden="true">
-              <Icone nome="quiz" />
-            </span>
-            <h3>Quiz interativo</h3>
-            <p>
-              Teste seus conhecimentos em três níveis de dificuldade, com feedback imediato e
-              explicação de cada resposta.
-            </p>
-          </div>
-          <div className="cartao home-card">
-            <span className="home-card__icone" aria-hidden="true">
-              <Icone nome="proibido" />
-            </span>
-            <h3>Mitos x fatos</h3>
-            <p>
-              Desconstruímos ideias equivocadas comuns sobre o TDAH com base em evidências
-              científicas atuais.
-            </p>
-          </div>
-          <div className="cartao home-card">
-            <span className="home-card__icone" aria-hidden="true">
-              <Icone nome="calendario" />
-            </span>
-            <h3>Ferramentas para o dia a dia</h3>
-            <p>
-              Organize tarefas, monte sua rotina escolar e use o modo foco para se concentrar em
-              uma atividade por vez.
-            </p>
-          </div>
+          {RECURSOS.map((recurso) => (
+            <Link
+              key={recurso.titulo}
+              to={recurso.para}
+              className={`bloco ${recurso.variante} home-card`}
+              style={{ "--cor": `var(--bloco-${recurso.cor})` }}
+            >
+              <span className="home-card__icone" aria-hidden="true">
+                <Icone nome={recurso.icone} />
+              </span>
+              <h3>{recurso.titulo}</h3>
+              <p>{recurso.texto}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="container container--estreito home-aviso">
+      <section className="container home-aviso">
         <p>
           <strong>Importante:</strong> o conteúdo deste site tem finalidade educativa. Ele não
           substitui uma avaliação profissional. O diagnóstico do TDAH deve ser sempre feito por

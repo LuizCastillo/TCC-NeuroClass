@@ -7,8 +7,8 @@
 }
 
 .planejamento-cabecalho__saudacao {
-  color: var(--cinza-500);
-  font-size: 14px;
+  color: var(--cinza-700);
+  font-size: 16px;
   margin: 0 0 4px;
 }
 
@@ -20,8 +20,8 @@
 }
 
 .planejamento-cabecalho__link-calendario {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--azul-700);
   text-decoration: none;
   white-space: nowrap;
@@ -39,8 +39,7 @@
 }
 
 .planejamento-navegacao-data__texto {
-  color: var(--azul-900);
-  font-size: 22px;
+  font-size: clamp(30px, 6vw, 44px);
   text-transform: capitalize;
   margin: 0;
   text-align: center;
@@ -49,19 +48,17 @@
 
 .planejamento-navegacao-data__seta {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  border: 1.5px solid var(--cinza-200);
-  background: var(--branco);
-  color: var(--cinza-700);
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: var(--azul-100);
+  color: var(--azul-900);
   font-size: 16px;
   cursor: pointer;
 }
 
 .planejamento-navegacao-data__seta:hover {
-  background: var(--azul-50);
-  border-color: var(--azul-500);
+  background: var(--bloco-amarelo);
 }
 
 .planejamento-progresso {
@@ -73,35 +70,34 @@
 
 .planejamento-progresso__trilha {
   flex: 1;
-  height: 8px;
-  background: var(--cinza-200);
-  border-radius: 999px;
+  height: 16px;
+  background: var(--azul-100);
   overflow: hidden;
 }
 
 .planejamento-progresso__preenchimento {
   height: 100%;
-  background: var(--verde-600);
-  border-radius: 999px;
+  background: var(--azul-700);
   transition: width 0.3s ease;
 }
 
 .planejamento-progresso__texto {
-  font-size: 12.5px;
-  color: var(--cinza-500);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cinza-700);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .planejamento-carregando {
-  color: var(--cinza-500);
+  color: var(--cinza-700);
   text-align: center;
   padding: 32px 0;
 }
 
 .planejamento-vazio {
   text-align: center;
-  color: var(--cinza-500);
+  color: var(--cinza-700);
   padding: 40px 20px;
 }
 
@@ -115,7 +111,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--vao);
 }
 
 .planejamento-botao-adicionar {
@@ -124,7 +120,7 @@
 }
 
 @media (max-width: 480px) {
-  .planejamento-navegacao-data__texto {
-    font-size: 18px;
+  .planejamento-progresso {
+    flex-wrap: wrap;
   }
 }

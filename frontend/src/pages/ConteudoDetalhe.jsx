@@ -53,7 +53,7 @@ export default function ConteudoDetalhe() {
       <div className="leitura-barra" aria-hidden="true">
         <div className="leitura-barra__preenchimento" style={{ width: `${progresso}%` }} />
       </div>
-      <div className={`container container--estreito pagina-artigo artigo--${artigo.cor}`}>
+      <div className={`container container--estreito pagina-artigo`}>
         <Link to="/conteudo" className="pagina-artigo__voltar">
           ← Voltar ao conteúdo
         </Link>
@@ -96,7 +96,7 @@ export default function ConteudoDetalhe() {
           </Link>
         </div>
 
-        <Link to={`/conteudo/${proximo.slug}`} className="artigo-proximo">
+        <Link to={`/conteudo/${proximo.slug}`} className="bloco bloco--azul artigo-proximo">
           <span>Próximo artigo</span>
           <strong>{proximo.titulo}</strong>
         </Link>

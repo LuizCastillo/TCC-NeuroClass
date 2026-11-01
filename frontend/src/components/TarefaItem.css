@@ -2,24 +2,33 @@
   display: flex;
   align-items: stretch;
   gap: 12px;
-  border: 1.5px solid var(--cinza-200);
-  border-radius: var(--raio);
-  background: var(--branco);
+  background: var(--azul-100);
   overflow: hidden;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.tarefa-item:nth-child(4n + 1) { --cor: var(--bloco-amarelo); }
+.tarefa-item:nth-child(4n + 2) { --cor: var(--bloco-rosa); }
+.tarefa-item:nth-child(4n + 3) { --cor: var(--bloco-lilas); }
+.tarefa-item:nth-child(4n) { --cor: var(--bloco-agua); }
+
+.tarefa-item:hover,
+.tarefa-item:focus-within {
+  background: var(--cor);
+  transform: translateY(-3px);
 }
 
 .tarefa-item--concluida {
-  background: var(--cinza-100);
-  border-color: var(--cinza-200);
+  background: var(--azul-50);
 }
 
 .tarefa-item__checkbox {
   flex-shrink: 0;
   width: 44px;
   border: none;
-  border-right: 1.5px solid var(--cinza-200);
   background: var(--branco);
-  color: var(--verde-600);
+  box-shadow: inset 0 0 0 2px var(--azul-900);
+  color: var(--azul-900);
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
@@ -29,11 +38,12 @@
 }
 
 .tarefa-item__checkbox:hover {
-  background: var(--verde-50);
+  background: var(--bloco-verde);
 }
 
 .tarefa-item--concluida .tarefa-item__checkbox {
-  background: var(--verde-50);
+  background: var(--bloco-verde);
+  color: var(--azul-900);
 }
 
 .tarefa-item__conteudo {
@@ -58,8 +68,8 @@
 
 .tarefa-item__horario {
   font-weight: 700;
-  color: var(--azul-700);
-  font-size: 14px;
+  color: var(--azul-900);
+  font-size: 15px;
   flex-shrink: 0;
 }
 
@@ -68,8 +78,9 @@
 }
 
 .tarefa-item__titulo {
-  font-weight: 600;
-  color: var(--cinza-900);
+  font: inherit;
+  font-weight: 700;
+  color: var(--azul-900);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -77,33 +88,39 @@
 
 .tarefa-item--concluida .tarefa-item__titulo {
   text-decoration: line-through;
-  color: var(--cinza-500);
+  color: var(--cinza-700);
 }
 
 .tarefa-item__meta {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 12.5px;
-  color: var(--cinza-500);
+  font-size: 14px;
+  color: var(--azul-900);
   flex-wrap: wrap;
 }
 
 .tarefa-item__prioridade {
   padding: 2px 8px;
-  border-radius: 999px;
   font-weight: 600;
 }
 
 .tarefa-item__prioridade--baixa {
-  background: var(--cinza-100);
-  color: var(--cinza-700);
+  background: var(--branco);
+  color: var(--azul-900);
 }
 .tarefa-item__prioridade--media {
-  background: var(--azul-100);
+  background: var(--branco);
   color: var(--azul-900);
 }
 .tarefa-item__prioridade--alta {
-  background: #fef3c7;
-  color: #92400e;
+  background: var(--azul-900);
+  color: var(--branco);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarefa-item:hover,
+  .tarefa-item:focus-within {
+    transform: none;
+  }
 }

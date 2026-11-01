@@ -1,28 +1,33 @@
 .barra-progresso {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
 }
 
 .barra-progresso__trilha {
-  flex: 1;
-  height: 10px;
-  background: var(--cinza-200);
-  border-radius: 999px;
-  overflow: hidden;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 5px;
 }
 
-.barra-progresso__preenchimento {
-  height: 100%;
+.barra-progresso__bloco {
+  height: 16px;
+  background: var(--azul-100);
+  transition: background-color 0.2s ease;
+}
+
+.barra-progresso__bloco--feito {
   background: var(--azul-700);
-  border-radius: 999px;
-  transition: width 0.3s ease;
+}
+
+.barra-progresso__bloco--atual {
+  background: var(--bloco-amarelo);
 }
 
 .barra-progresso__texto {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--cinza-700);
-  white-space: nowrap;
 }
