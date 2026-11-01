@@ -4,6 +4,8 @@ import Icone from "../components/Icone";
 
 const FERRAMENTAS = [
   {
+    cor: "amarelo",
+    variante: "bloco--azul",
     icone: "lista",
     titulo: "Organizar minhas tarefas",
     descricao: "Transforme suas atividades em tarefas menores e mais fáceis de acompanhar.",
@@ -11,6 +13,8 @@ const FERRAMENTAS = [
     para: "/planejamento",
   },
   {
+    cor: "rosa",
+    variante: "bloco--claro",
     icone: "calendario",
     titulo: "Criar minha rotina",
     descricao: "Monte uma rotina personalizada com horários, tarefas, pausas e prioridades.",
@@ -18,6 +22,8 @@ const FERRAMENTAS = [
     para: "/planejamento",
   },
   {
+    cor: "agua",
+    variante: "bloco--escuro",
     icone: "relogio",
     titulo: "Modo foco",
     descricao: "Concentre-se em uma tarefa por vez usando um temporizador simples.",
@@ -36,16 +42,19 @@ export default function Ferramentas() {
 
       <div className="ferramentas-grade">
         {FERRAMENTAS.map((f) => (
-          <div key={f.titulo} className="cartao ferramenta-card">
+          <Link
+            key={f.titulo}
+            to={f.para}
+            className={`bloco ${f.variante} ferramenta-card`}
+            style={{ "--cor": `var(--bloco-${f.cor})` }}
+          >
             <span className="ferramenta-card__icone" aria-hidden="true">
               <Icone nome={f.icone} />
             </span>
             <h2>{f.titulo}</h2>
             <p>{f.descricao}</p>
-            <Link to={f.para} className="botao botao--primario ferramenta-card__botao">
-              {f.botao}
-            </Link>
-          </div>
+            <span className="ferramenta-card__acao">{f.botao}</span>
+          </Link>
         ))}
       </div>
 

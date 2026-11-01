@@ -1,21 +1,23 @@
 .pagina-foco {
-  padding: 64px 20px;
-  display: flex;
-  justify-content: center;
+  padding: 56px 20px;
 }
 
-.foco-config h1 {
-  color: var(--azul-900);
-  font-size: 22px;
-  margin: 0 0 8px;
-  text-align: center;
+.foco-config,
+.foco-timer,
+.foco-concluido {
+  width: 100%;
+}
+
+.foco-config h1,
+.foco-concluido h1 {
+  font-size: clamp(36px, 6vw, 52px);
+  margin: 0 0 10px;
 }
 
 .foco-config__intro {
   color: var(--cinza-700);
-  text-align: center;
   margin: 0 0 28px;
-  font-size: 14.5px;
+  font-size: 17px;
 }
 
 .foco-config__campo {
@@ -24,7 +26,7 @@
 
 .foco-config__opcoes {
   display: flex;
-  gap: 8px;
+  gap: var(--vao);
   margin-top: 8px;
   flex-wrap: wrap;
 }
@@ -32,111 +34,121 @@
 .foco-config__opcao {
   flex: 1;
   min-width: 64px;
+  min-height: 72px;
   padding: 12px 8px;
-  border: 1.5px solid var(--cinza-200);
-  border-radius: var(--raio);
-  background: var(--branco);
-  color: var(--cinza-700);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.foco-config__opcao--ativa {
-  border-color: var(--azul-700);
-  background: var(--azul-50);
+  border: none;
+  background: var(--azul-100);
   color: var(--azul-900);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-/* Timer: tela propositalmente minimalista, sem cor de fundo chamativa,
-   sem animações constantes — apenas a barra de progresso avança de forma
-   linear e silenciosa (respeita prefers-reduced-motion abaixo). */
+.foco-config__opcao:nth-child(1) { --cor: var(--bloco-agua); }
+.foco-config__opcao:nth-child(2) { --cor: var(--bloco-amarelo); }
+.foco-config__opcao:nth-child(3) { --cor: var(--bloco-rosa); }
+.foco-config__opcao:nth-child(4) { --cor: var(--bloco-lilas); }
+
+.foco-config__opcao:hover,
+.foco-config__opcao:focus-visible {
+  background: var(--cor);
+  transform: translateY(-3px);
+}
+
+.foco-config__opcao--ativa,
+.foco-config__opcao--ativa:hover,
+.foco-config__opcao--ativa:focus-visible {
+  background: var(--azul-900);
+  color: var(--branco);
+  transform: none;
+}
+
+/* Timer: os blocos se apagam devagar e indicam o tempo. É a única animação
+   sem clique do usuário no site, e some com prefers-reduced-motion. */
 .foco-timer {
-  text-align: center;
-  padding: 56px 32px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 32px;
+  align-items: center;
+  padding: 32px;
 }
 
 .foco-timer--pausa {
   background: var(--verde-50);
-  border-color: #bbf7d0;
 }
 
 .foco-timer__rotulo {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--cinza-500);
-  margin: 0 0 16px;
+  grid-column: 1 / -1;
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--azul-900);
+  margin: 0;
 }
 
 .foco-timer__relogio {
-  font-size: 64px;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(64px, 11vw, 96px);
   font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--azul-900);
-  margin: 0 0 28px;
+  margin: 0;
   font-variant-numeric: tabular-nums;
 }
 
-.foco-timer__trilha {
-  height: 8px;
-  background: var(--cinza-200);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-bottom: 32px;
+.foco-timer__blocos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
 }
 
-.foco-timer__preenchimento {
-  height: 100%;
+.foco-timer__blocos span {
+  aspect-ratio: 1;
   background: var(--azul-700);
-  border-radius: 999px;
-  transition: width 1s linear;
+  transition: background-color 1s linear;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .foco-timer__preenchimento {
-    transition: none;
-  }
+.foco-timer__blocos .foco-timer__bloco--apagado {
+  background: var(--azul-100);
 }
 
 .foco-timer__acoes {
+  grid-column: 1 / -1;
   display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-.foco-concluido {
-  text-align: center;
-}
-
-.foco-concluido h1 {
-  color: var(--azul-900);
-  font-size: 24px;
-  margin: 0 0 10px;
+  gap: var(--vao);
+  flex-wrap: wrap;
 }
 
 .foco-concluido p {
   color: var(--cinza-700);
+  font-size: 17px;
   margin: 0 0 20px;
 }
 
-.foco-concluido__confirmacao {
-  color: var(--verde-600);
-  font-weight: 600;
+.foco-concluido .foco-concluido__confirmacao {
+  color: #166534;
+  font-weight: 700;
 }
 
 .foco-concluido__acoes {
   display: flex;
-  gap: 12px;
-  justify-content: center;
+  gap: var(--vao);
+  flex-wrap: wrap;
   margin-top: 16px;
 }
 
-@media (max-width: 480px) {
-  .foco-timer__relogio {
-    font-size: 48px;
-  }
+@media (max-width: 560px) {
   .foco-timer {
-    padding: 40px 20px;
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foco-config__opcao:hover,
+  .foco-config__opcao:focus-visible {
+    transform: none;
   }
 }
