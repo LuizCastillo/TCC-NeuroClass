@@ -3,6 +3,9 @@ import { ARTIGOS } from "../data/conteudo";
 import { lerLidos } from "../data/leitura";
 import "./Conteudo.css";
 
+const CORES = ["amarelo", "rosa", "verde", "lilas"];
+const VARIANTES = ["bloco--azul", "bloco--claro", "bloco--escuro", "bloco--claro"];
+
 export default function Conteudo() {
   const lidos = lerLidos();
   const totalLidos = ARTIGOS.filter((a) => lidos.includes(a.slug)).length;
@@ -27,11 +30,13 @@ export default function Conteudo() {
             {totalLidos}/{ARTIGOS.length}
           </span>
           <span className="conteudo-progresso__rotulo">artigos lidos</span>
-          <div className="conteudo-progresso__trilha" aria-hidden="true">
-            <div
-              className="conteudo-progresso__barra"
-              style={{ width: `${(totalLidos / ARTIGOS.length) * 100}%` }}
-            />
+          <div className="conteudo-progresso__blocos" aria-hidden="true">
+            {ARTIGOS.map((a, i) => (
+              <span
+                key={a.slug}
+                className={i < totalLidos ? "conteudo-progresso__bloco--lido" : undefined}
+              />
+            ))}
           </div>
         </div>
       </header>
@@ -41,7 +46,8 @@ export default function Conteudo() {
           <Link
             key={artigo.slug}
             to={`/conteudo/${artigo.slug}`}
-            className={`cartao artigo-card artigo-card--${artigo.cor}`}
+            className={`bloco ${VARIANTES[i % VARIANTES.length]} artigo-card`}
+            style={{ "--cor": `var(--bloco-${CORES[i % CORES.length]})` }}
           >
             <div className="artigo-card__topo">
               <span className="artigo-card__numero">{String(i + 1).padStart(2, "0")}</span>
