@@ -62,7 +62,7 @@ cp .env.example .env.local  # ajuste VITE_API_URL se necessário
 npm run dev
 ```
 
-A aplicação sobe em `http://localhost:5173`.
+A aplicação sobe em `http://localhost:5173`. Para rodar os testes do front: `npm test`.
 
 ## Deploy em produção
 
